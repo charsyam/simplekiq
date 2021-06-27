@@ -1,7 +1,7 @@
 from abc import *
 
-from base import KiqQueue
-from constants import Constants
+from .base import KiqQueue
+from .constants import Constants
 
 
 class Worker:

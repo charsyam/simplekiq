@@ -1,7 +1,7 @@
 import redis
-from base import KiqQueue
-from event import EventBuilder
-from worker import Worker
+from simplekiq import KiqQueue
+from simplekiq import EventBuilder
+from simplekiq import Worker
 
 
 class MyEventWorker(Worker):

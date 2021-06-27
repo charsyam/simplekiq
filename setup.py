@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(name='simplekiq',
-      version='0.0.1',
+      version='0.0.2',
       description='Python SideKiq Client',
       author='DaeMyung Kang',
       author_email='charsyam@gmail.com',

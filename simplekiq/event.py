@@ -1,7 +1,7 @@
 from random import choice
 from datetime import datetime
 
-from base import KiqQueue
+from .base import KiqQueue
 
 
 class EventBuilder:
