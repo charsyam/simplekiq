@@ -10,14 +10,14 @@ class Worker:
         self.failed_queue = failed_queue
 
     @abstractmethod
-    def _process(self, event_type, value):
+    def on_event(self, event_type, value):
         pass
 
     def process(self, wait=True):
         event = None
         try:
             event = self.queue.dequeue(wait)
-            return self._process(event[Constants.CLASS_NAME], event[Constants.ARGS])
+            return self.on_event(event[Constants.CLASS_NAME], event[Constants.ARGS])
         except Exception as e:
             print(e)
             if not event:
