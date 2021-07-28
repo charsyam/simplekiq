@@ -12,13 +12,12 @@ class MyEventWorker(Worker):
         print(event_type, value)
 
 
-conn = redis.StrictRedis()
-queue = KiqQueue(conn, "my_test_job", True)
-failed_queue = KiqQueue(conn, "failed", True)
+queue = KiqQueue("127.0.0.1:6379", "api_worker", True)
+failed_queue = KiqQueue("127.0.0.1:6379", "api_failed", True)
 
-event_builder = EventBuilder(queue)
-value = event_builder.emit("test_event", {"age": 13, "value": "test", "1": {"2": 2}}, 3)
-queue.enqueue(value)
+#event_builder = EventBuilder(queue)
+#value = event_builder.emit("test_event", {"age": 13, "value": "test", "1": {"2": 2}}, 3)
+#queue.enqueue(value)
 
 worker = MyEventWorker(queue, failed_queue)
 
